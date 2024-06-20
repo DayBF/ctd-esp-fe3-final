@@ -1,17 +1,25 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
+import { Link } from "react-router-dom";
+import { useGlobalContext } from "./utils/ContextProvider";
 
 
-const Card = ({ name, username, id }) => {
+const Card = ({ data }) => {
+
+  const {setFavorites} = useGlobalContext();
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
+    setFavorites(prev => [...prev, data])
   }
 
   return (
     <div className="card">
-      <h2>{name}</h2>
-      <p>{username}</p>
-      <p>{id}</p>
+      <Link to={"/dentist/"+ data.id}>
+        <h2>{data.name}</h2>
+      </Link>
+      <p>{data.username}</p>
+      <p>{data.id}</p>
       <button onClick={addFav} className="favButton">Add fav</button>
     </div>
   );

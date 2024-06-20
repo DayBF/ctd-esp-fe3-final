@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Card from '../Components/Card'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -24,7 +24,7 @@ const Home = () => {
       <h1>Home</h1>
       <div className='card-grid'>
         {
-          dentists.map(({ name, username, id }) => <Card key={id} name={name} username={username} id={id} />)
+          dentists.map( dentist => <Card key={dentist.id} data={dentist} />)
         }
       </div>
     </main>
