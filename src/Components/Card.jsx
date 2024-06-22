@@ -3,24 +3,23 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "./utils/ContextProvider";
 
-
 const Card = ({ data }) => {
+  const { dispatch } = useGlobalContext();
 
-  const {setFavorites} = useGlobalContext();
-
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-    setFavorites(prev => [...prev, data])
-  }
+  const addFav = () => {
+    dispatch({ type: "ADD_FAVORITE", payload: data });
+  };
 
   return (
     <div className="card">
-      <Link to={"/dentist/"+ data.id}>
+      <Link to={"/dentist/" + data.id}>
         <h2>{data.name}</h2>
       </Link>
       <p>{data.username}</p>
       <p>{data.id}</p>
-      <button onClick={addFav} className="favButton">Add fav</button>
+      <button onClick={addFav} className="favButton">
+        Add fav
+      </button>
     </div>
   );
 };
