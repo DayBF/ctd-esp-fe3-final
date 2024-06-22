@@ -7,7 +7,6 @@ const Form = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
 
-  const nameRegex = !/^\s/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handleName = (e) => {
@@ -20,11 +19,7 @@ const Form = () => {
 
   const eventHandler = (e) => {
     e.preventDefault();
-    if (
-      name.trim().length > 3 &&
-      nameRegex.test(name) &&
-      emailRegex.test(mail)
-    ) {
+    if (name.trim().length > 2 && !/^\s/.test(name) && emailRegex.test(mail)) {
       setShow(true);
       setError(false);
     } else {
