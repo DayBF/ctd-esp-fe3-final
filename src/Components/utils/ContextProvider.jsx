@@ -23,7 +23,7 @@ const reducer = (state, action) => {
 const initialState = {
   theme: "light",
   dentists: [],
-  dentist: {},
+  photos: [],
   favorites: lsFavorites,
 };
 

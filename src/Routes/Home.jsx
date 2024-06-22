@@ -5,8 +5,8 @@ const Home = () => {
   const { state } = useGlobalContext();
 
   return (
-    <main className="">
-      <h1>Home</h1>
+    <main className="sections">
+      <h1 className="sectionsNames">Home</h1>
       <div className="card-grid">
         {state.dentists.map((dentist) => (
           <Card key={dentist.id} data={dentist} />
